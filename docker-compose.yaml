@@ -1,0 +1,41 @@
+version: '3.3'
+
+services:
+
+  wordpress:
+    image: wordpress:latest
+    container_name: wp1  
+    restart: unless-stopped
+    ports:
+      - "8100:80"
+    volumes:
+      - ./wordpress:/var/www/html 
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_USER: useradmin
+      WORDPRESS_DB_PASSWORD: p4ssw0rd 
+
+  db:
+    image: mariadb:latest    
+    container_name: db_wp1
+    restart: unless-stopped
+    volumes:
+      - ./db:/var/lib/mysql 
+    environment:
+      MYSQL_ROOT_PASSWORD: p4ssw0rd
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: useradmin
+      MYSQL_PASSWORD: p4ssw0rd  
+
+  phpmyadmin:
+    image: phpmyadmin:latest    
+    container_name: pma_wp1
+    restart: unless-stopped 
+    ports:      
+      - "8080:80"              
+    depends_on:      
+      - db         
+    environment:
+      MYSQL_ROOT_PASSWORD: p4ssw0rd
+      PMA_USER: useradmin
+      PMA_PASSWORD: p4ssw0rd    
