@@ -49,4 +49,8 @@ services:
       PMA_PASSWORD: p4ssw0rd 
     networks:
       - red_wordpress
+
+networks:
+  red_wordpress:    
+  
       
