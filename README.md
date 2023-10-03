@@ -1,4 +1,4 @@
 # wp1
 WordPress + MariaDB + phpMyAdmin
 
-Ver en "localhost:8100"
+Ver en "localhost:8101"
