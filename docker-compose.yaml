@@ -8,38 +8,38 @@ services:
     hostname: wordpress    
     restart: unless-stopped
     ports:
-      - "8100:80"
-    volumes:
-      - ./wordpress:/var/www/html 
+      - "8101:80"
     environment:
       WORDPRESS_DB_HOST: db:3306
       WORDPRESS_DB_USER: useradmin
       WORDPRESS_DB_PASSWORD: p4ssw0rd 
       WORDPRESS_DB_NAME: wordpress
+    volumes:
+      - ./wordpress:/var/www/html       
     networks:
-      - wp1
+      - red_wp1
       
   db:
     image: mariadb:latest    
     container_name: db_wp1
     hostname: db    
     restart: unless-stopped
-    volumes:
-      - ./db:/var/lib/mysql 
     environment:
       MYSQL_ROOT_PASSWORD: p4ssw0rd
       MYSQL_DATABASE: wordpress
       MYSQL_USER: useradmin
       MYSQL_PASSWORD: p4ssw0rd 
+    volumes:
+      - ./db:/var/lib/mysql       
     networks:
-      - wp1     
+      - red_wp1     
 
   phpmyadmin:
     image: phpmyadmin:latest    
     container_name: pma_wp1
     restart: unless-stopped 
     ports:      
-      - "8080:80"              
+      - "8081:80"              
     depends_on:      
       - db         
     environment:
@@ -48,9 +48,9 @@ services:
       PMA_USER: useradmin
       PMA_PASSWORD: p4ssw0rd 
     networks:
-      - wp1
+      - red_wp1
 
 networks:
-  wp1:    
+  red_wp1:    
   
       
