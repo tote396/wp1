@@ -39,7 +39,7 @@ services:
     container_name: pma_wp1
     restart: unless-stopped
     ports:
-      - "8081:80"        
+      - "8081:80"
     depends_on:
       - db
     environment:
