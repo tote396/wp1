@@ -35,22 +35,21 @@ services:
       - red_wp1
 
   phpmyadmin:
-    image: phpmyadmin:latest    
+    image: phpmyadmin:latest
     container_name: pma_wp1
-    restart: unless-stopped 
-    ports:      
-      - "8081:80"              
-    depends_on:      
-      - db         
+    restart: unless-stopped
+    ports:
+      - "8081:80"        
+    depends_on:
+      - db
     environment:
-      PMA_HOST: db:3306  
+      PMA_HOST: db:3306
       MYSQL_ROOT_PASSWORD: p4ssw0rd
       PMA_USER: useradmin
-      PMA_PASSWORD: p4ssw0rd 
+      PMA_PASSWORD: p4ssw0rd
     networks:
       - red_wp1
 
 networks:
-  red_wp1:    
-  
-      
+  red_wp1
+
