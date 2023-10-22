@@ -51,5 +51,5 @@ services:
       - red_wp1
 
 networks:
-  red_wp1
+  red_wp1:
 
