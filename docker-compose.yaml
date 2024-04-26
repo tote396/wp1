@@ -12,7 +12,7 @@ services:
     environment:
       WORDPRESS_DB_HOST: db:3306
       WORDPRESS_DB_USER: useradmin
-      WORDPRESS_DB_PASSWORD: p4ssw0rd
+      WORDPRESS_DB_PASSWORD: 20261945
       WORDPRESS_DB_NAME: wordpress
     volumes:
       - ./wordpress:/var/www/html
@@ -25,10 +25,10 @@ services:
     hostname: db
     restart: unless-stopped
     environment:
-      MYSQL_ROOT_PASSWORD: p4ssw0rd
+      MYSQL_ROOT_PASSWORD: 20261945
       MYSQL_DATABASE: wordpress
       MYSQL_USER: useradmin
-      MYSQL_PASSWORD: p4ssw0rd
+      MYSQL_PASSWORD: 20261945
     volumes:
       - ./db:/var/lib/mysql
     networks:
@@ -44,9 +44,9 @@ services:
       - db
     environment:
       PMA_HOST: db:3306
-      MYSQL_ROOT_PASSWORD: p4ssw0rd
+      MYSQL_ROOT_PASSWORD: 20261945
       PMA_USER: useradmin
-      PMA_PASSWORD: p4ssw0rd
+      PMA_PASSWORD: 20261945
     networks:
       - red_wp1
 
